@@ -1,0 +1,35 @@
+@import "../../styles/global.scss";
+
+.sideBar{
+    background-color: $color-main;
+    width: 260px;
+    min-height: 100vh;
+    padding: 24px 10px;
+    box-sizing: border-box;
+    transition: all ease-in-out .3s
+}
+.hideSideBar{
+    @extend .sideBar;
+    width: 87px;
+    transition: all ease-in-out .3s
+}
+
+.listItem{
+    display: flex;
+    text-align: center;
+    text-decoration: none !important;
+    color: white;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    p {
+        margin: auto 0 !important;
+        font-weight: bold;
+        transition: all ease-out .3s;
+    }
+}
+.listItem:hover{
+    background-color: $color-light-grey-0;
+}
+.icon {
+    font-size: 2rem !important;
+}

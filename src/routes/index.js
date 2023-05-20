@@ -1,27 +1,15 @@
-import { Switch } from 'react-router'
+import { Route, Routes } from "react-router-dom";
 
-import RouteControl from '../components/RouteControl';
-import routes from './routes';
+import ClientLayout from "../layouts/Authenticated"
 
-const ClientRoutes = () => (
-    <Switch>
-        {routes.map((route, index) => {
-            return route.subRoutes && route.subRoutes.length > 0 ? (
-                route.subRoutes.map((subRoute, index) => (
-                    <RouteControl 
-                    exact 
-                    key={`subRoutes_${index}`}
-                    {...route}
-                    {...subRoute}
-                    path={`${route.path}${subRoute.path}`}
-                    component={subRoute.component}
-                />
-                ))
-            ) : (
-                <RouteControl key={`route_${index}`} exact {...route} plain={route.plain} />
-            );
-        })}
-    </Switch>
-);
+import LandingPage from "../pages/LandingPage/";
 
-export default ClientRoutes;
+
+const AllRoutes  = () => (
+    <Routes>
+        <Route path="/" element={<ClientLayout children={<LandingPage />}/>}/>
+        <Route path="/network" element={<ClientLayout children={<LandingPage />}/>}/>
+    </Routes>
+)
+
+export default AllRoutes;
